@@ -23,6 +23,7 @@ namespace XBNLoader
                 XBNtoXML.Convert(xbn);
 
             //XMLtoXBN.Convert(Path.Combine(Directory.GetCurrentDirectory(), @"XBN\Actions.xml"));
+            //XBNtoXML.Convert(Path.Combine(Directory.GetCurrentDirectory(), @"XBN\EquipLimit.xbn"));
 
             logger.Information("Press enter to exit...");
             Console.ReadLine();

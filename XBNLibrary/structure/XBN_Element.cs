@@ -10,7 +10,7 @@ namespace XBNLibrary.structure
 
         public string Name { get; set; }
         public List<XBN_Property> Properties { get; set; }
-        public List<XBN_Element> Child { get; set; }
+        public List<XBN_Element> Childs { get; set; }
 
         public short Unk3 { get; set; }
 
@@ -18,7 +18,7 @@ namespace XBNLibrary.structure
         {
             Header = header;
             Properties = new List<XBN_Property>();
-            Child = new List<XBN_Element>();
+            Childs = new List<XBN_Element>();
         }
 
         public static XBN_Element Deserialize(BinaryReader reader, XBN_Header header)
@@ -47,7 +47,7 @@ namespace XBNLibrary.structure
                 Name = name,
                 Unk3 = unk3,
                 Properties = properties,
-                Child = elements
+                Childs = elements
             };
         }
 
@@ -59,13 +59,13 @@ namespace XBNLibrary.structure
             writer.Write((short)Header.Tags.IndexOf(Name));
             writer.Write((short)Properties.Count);
             writer.Write(Unk3);
-            writer.Write((short)Child.Count);
+            writer.Write((short)Childs.Count);
 
             for (int i = 0; i < Properties.Count; i++)
                 Properties[i].Serialize(writer);
 
-            for (int i = 0; i < Child.Count; i++)
-                Child[i].Serialize(writer);
+            for (int i = 0; i < Childs.Count; i++)
+                Childs[i].Serialize(writer);
         }
     }
 }

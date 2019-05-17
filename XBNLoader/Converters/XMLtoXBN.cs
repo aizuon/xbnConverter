@@ -58,7 +58,7 @@ namespace XBNLoader.Converters
                     if (!xbn.Header.Tags.Contains(e3.Name.LocalName))
                         xbn.Header.Tags.Add(e3.Name.LocalName);
 
-                    xbnElement.Child.Add(child);
+                    xbnElement.Childs.Add(child);
                 }
 
                 xbn.RootElement.Elements.Add(xbnElement);
